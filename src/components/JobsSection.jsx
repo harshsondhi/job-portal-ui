@@ -65,6 +65,11 @@ const JobsSection = () => {
     setDisplayCount(prev => Math.min(prev + 6, filteredJobs.length))
   }
 
+  const isNewJob = (dateString) => {
+    const diffInHours = (new Date() - new Date(dateString)) / (1000 * 60 * 60)
+    return diffInHours < 24
+  }
+
   // Show loading skeleton
   if (loading) {
     return (
@@ -112,7 +117,7 @@ const JobsSection = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => { setActiveCategory(category); setDisplayCount(6) }}
               className={`relative group px-8 py-4 rounded-2xl text-sm font-bold transition-all duration-300 transform hover:scale-105 ${
                 activeCategory === category
                   ? 'bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 text-white shadow-2xl shadow-primary-500/25'
@@ -135,7 +140,7 @@ const JobsSection = () => {
             {filters.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => { setActiveFilter(filter); setDisplayCount(6) }}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   activeFilter === filter
                     ? 'bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300'
@@ -182,11 +187,18 @@ const JobsSection = () => {
                       <p className="text-gray-600 dark:text-gray-400 font-semibold">{job.company}</p>
                     </div>
                   </div>
-                  {job.workType === 'Remote' && (
-                    <span className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-700">
-                      🌍 Remote
-                    </span>
-                  )}
+                  <div className="flex flex-col items-end gap-1.5">
+                    {job.workType === 'Remote' && (
+                      <span className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-700">
+                        🌍 Remote
+                      </span>
+                    )}
+                    {isNewJob(job.postedDate) && (
+                      <span className="bg-gradient-to-r from-orange-400 to-red-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                        ✨ New
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex items-center text-gray-600 dark:text-gray-400 mb-4 space-x-4">
@@ -205,8 +217,15 @@ const JobsSection = () => {
                   </div>
                 </div>
 
-                <div className="text-2xl font-black bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                  {formatSalary(job.salary.min, job.salary.max)}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-2xl font-black bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
+                    {formatSalary(job.salary.min, job.salary.max)}
+                  </div>
+                  {job.experienceLevel && (
+                    <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                      {job.experienceLevel}
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -222,7 +241,12 @@ const JobsSection = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-                  <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{getTimeAgo(job.postedDate)}</span>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{getTimeAgo(job.postedDate)}</span>
+                    {job.applicationsCount != null && (
+                      <span className="text-xs text-gray-400 dark:text-gray-500">{job.applicationsCount} applicants</span>
+                    )}
+                  </div>
                   <div className="relative group overflow-hidden bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary-500/25">
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative z-10">Apply Now</span>
