@@ -1,0 +1,149 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "JobPortal" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - heading "JobPortal" [level=1] [ref=e12]
+        - generic [ref=e14]:
+          - link "Find Jobs" [ref=e15] [cursor=pointer]:
+            - /url: /jobs
+            - text: Find Jobs
+          - link "Companies" [ref=e17] [cursor=pointer]:
+            - /url: /companies
+            - text: Companies
+      - generic [ref=e20]:
+        - button "Toggle theme" [ref=e21]:
+          - img [ref=e24]
+        - link "Log In" [ref=e26] [cursor=pointer]:
+          - /url: /login
+          - text: Log In
+        - link "Sign Up" [ref=e28] [cursor=pointer]:
+          - /url: /register
+          - text: Sign Up
+  - main [ref=e30]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - heading "Get in Touch" [level=1] [ref=e37]
+        - paragraph [ref=e38]: Have questions or need help? We're here to assist you!
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: Full Name *
+              - textbox "John Doe" [ref=e44]
+            - generic [ref=e45]:
+              - generic [ref=e46]: Email Address *
+              - textbox "john@example.com" [ref=e47]
+          - generic [ref=e48]:
+            - generic [ref=e49]: I am a *
+            - generic [ref=e50]:
+              - generic [ref=e51] [cursor=pointer]:
+                - radio "Job Seeker" [checked] [ref=e52]
+                - generic [ref=e53]: Job Seeker
+                - img [ref=e55]
+              - generic [ref=e57] [cursor=pointer]:
+                - radio "Employer" [ref=e58]
+                - generic [ref=e59]: Employer
+              - generic [ref=e60] [cursor=pointer]:
+                - radio "Other" [ref=e61]
+                - generic [ref=e62]: Other
+          - generic [ref=e63]:
+            - generic [ref=e64]: Subject *
+            - combobox [ref=e65]:
+              - option "Select a subject" [selected]
+              - option "Technical Issue"
+              - option "Account Problem"
+              - option "Employer Onboarding"
+              - option "Job Posting Issue"
+              - option "Application Question"
+              - option "Feature Request"
+              - option "General Inquiry"
+              - option "Other"
+          - generic [ref=e66]:
+            - generic [ref=e67]: Message *
+            - textbox "Please describe your issue or inquiry in detail..." [ref=e68]
+            - paragraph [ref=e69]: "Minimum 10 characters. Current: 0"
+          - generic [ref=e70]:
+            - button "Cancel" [ref=e71]
+            - button "Send Message" [ref=e72]
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img [ref=e77]
+            - heading "Email Us" [level=3] [ref=e79]
+            - paragraph [ref=e80]: support@jobportal.com
+          - generic [ref=e81]:
+            - img [ref=e83]
+            - heading "Response Time" [level=3] [ref=e85]
+            - paragraph [ref=e86]: Within 24-48 hours
+          - generic [ref=e87]:
+            - img [ref=e89]
+            - heading "Call Us" [level=3] [ref=e91]
+            - paragraph [ref=e92]: +1 (555) 123-4567
+  - contentinfo [ref=e93]:
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - heading "JobPortal" [level=3] [ref=e102]
+          - paragraph [ref=e103]: Your trusted partner in finding the perfect career opportunity. Connect with top employers and build your professional future with confidence.
+          - generic [ref=e104]:
+            - link [ref=e105] [cursor=pointer]:
+              - /url: https://twitter.com/jobportal
+              - img [ref=e106]
+            - link [ref=e108] [cursor=pointer]:
+              - /url: https://linkedin.com/company/jobportal
+              - img [ref=e109]
+            - link [ref=e111] [cursor=pointer]:
+              - /url: https://github.com/jobportal
+              - img [ref=e112]
+            - link [ref=e114] [cursor=pointer]:
+              - /url: https://instagram.com/jobportal
+              - img [ref=e115]
+        - generic [ref=e117]:
+          - heading "For Job Seekers" [level=4] [ref=e118]
+          - list [ref=e119]:
+            - listitem [ref=e120]:
+              - link "Browse Jobs" [ref=e121] [cursor=pointer]:
+                - /url: /jobs
+                - text: Browse Jobs
+            - listitem [ref=e123]:
+              - link "Companies" [ref=e124] [cursor=pointer]:
+                - /url: /companies
+                - text: Companies
+        - generic [ref=e126]:
+          - heading "For Employers" [level=4] [ref=e127]
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - link "Post a Job" [ref=e130] [cursor=pointer]:
+                - /url: /login
+                - text: Post a Job
+            - listitem [ref=e132]:
+              - link "Browse Candidates" [ref=e133] [cursor=pointer]:
+                - /url: /login
+                - text: Browse Candidates
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - text: Privacy Policy
+            - generic:
+              - paragraph: Privacy Policy
+              - paragraph: We are committed to protecting your personal information. We collect only necessary data, never sell it to third parties, and give you full control over your privacy settings at any time.
+          - generic [ref=e141]:
+            - text: Terms of Service
+            - generic:
+              - paragraph: Terms of Service
+              - paragraph: By using JobPortal, you agree to our terms governing use of the platform, including job postings, applications, and account conduct. We reserve the right to update these terms at any time.
+          - generic [ref=e143]:
+            - text: Cookie Policy
+            - generic:
+              - paragraph: Cookie Policy
+              - paragraph: We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By using JobPortal, you consent to our use of cookies in accordance with this policy.
+          - link "Contact Us Contact Us Have a question or facing an issue? Send a message to our admin team and we'll get back to you as soon as possible." [ref=e145] [cursor=pointer]:
+            - /url: /contact
+            - text: Contact Us
+            - generic:
+              - paragraph: Contact Us
+              - paragraph: Have a question or facing an issue? Send a message to our admin team and we'll get back to you as soon as possible.
+        - generic [ref=e147]:
+          - generic [ref=e148]: © 2026 JobPortal. All rights reserved.
+          - generic [ref=e149]: Made with ❤️ for job seekers worldwide
