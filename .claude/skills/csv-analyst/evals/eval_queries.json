@@ -1,0 +1,148 @@
+{
+  "split": {
+    "train": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "validation": [12, 13, 14, 15, 16, 17, 18, 19]
+  },
+  "queries": [
+    {
+      "id": 0,
+      "set": "train",
+      "query": "I've got a spreadsheet in ~/data/q4_results.xlsx with revenue in col C and expenses in col D — can you add a profit margin column and highlight anything under 10%?",
+      "should_trigger": true,
+      "note": "No CSV keyword, but tabular intent is clear"
+    },
+    {
+      "id": 1,
+      "set": "train",
+      "query": "summarize sales.csv for me",
+      "should_trigger": true,
+      "note": "Direct CSV + summary intent"
+    },
+    {
+      "id": 2,
+      "set": "train",
+      "query": "clean up the messy date formats in this export file",
+      "should_trigger": true,
+      "note": "'export file' is indirect — good near-match"
+    },
+    {
+      "id": 3,
+      "set": "train",
+      "query": "plot a bar chart of revenue per region from my dataset",
+      "should_trigger": true,
+      "note": "No file type mentioned — triggers on tabular + visualize intent"
+    },
+    {
+      "id": 4,
+      "set": "train",
+      "query": "how many null values are in my tsv?",
+      "should_trigger": true,
+      "note": "TSV covered in description"
+    },
+    {
+      "id": 5,
+      "set": "train",
+      "query": "write a python script that reads a csv and uploads each row to our postgres database",
+      "should_trigger": false,
+      "note": "STRONG NEGATIVE — mentions CSV but intent is ETL/database, not analysis"
+    },
+    {
+      "id": 6,
+      "set": "train",
+      "query": "what's the quickest way to convert this json file to yaml",
+      "should_trigger": false,
+      "note": "Different file type, no tabular data"
+    },
+    {
+      "id": 7,
+      "set": "train",
+      "query": "I need to update the formulas in my Excel budget spreadsheet",
+      "should_trigger": false,
+      "note": "STRONG NEGATIVE — Excel but intent is formula editing, not data analysis"
+    },
+    {
+      "id": 8,
+      "set": "train",
+      "query": "write a fibonacci function",
+      "should_trigger": false,
+      "note": "Weak negative — no overlap at all"
+    },
+    {
+      "id": 9,
+      "set": "train",
+      "query": "filter my orders table to only show rows where status = 'shipped'",
+      "should_trigger": true,
+      "note": "No file type — 'table' and filter intent should trigger"
+    },
+    {
+      "id": 10,
+      "set": "train",
+      "query": "can you load this pipe-delimited file and show me the column stats",
+      "should_trigger": true,
+      "note": "Pipe-delimited is a delimiter variant the skill handles"
+    },
+    {
+      "id": 11,
+      "set": "train",
+      "query": "parse this CSV and insert each row into a Redis queue",
+      "should_trigger": false,
+      "note": "STRONG NEGATIVE — CSV present but intent is streaming/queue, not analysis"
+    },
+    {
+      "id": 12,
+      "set": "validation",
+      "query": "can you chart monthly sales trends from this spreadsheet?",
+      "should_trigger": true,
+      "note": "Validation: chart + spreadsheet → should trigger"
+    },
+    {
+      "id": 13,
+      "set": "validation",
+      "query": "remove duplicate rows from my dataset",
+      "should_trigger": true,
+      "note": "Validation: cleaning intent on tabular data"
+    },
+    {
+      "id": 14,
+      "set": "validation",
+      "query": "write a bash script to split a large csv into 1000-row chunks",
+      "should_trigger": false,
+      "note": "Validation: STRONG NEGATIVE — CSV but intent is shell scripting"
+    },
+    {
+      "id": 15,
+      "set": "validation",
+      "query": "what's the average salary by department in employees.csv",
+      "should_trigger": true,
+      "note": "Validation: stat computation on named csv"
+    },
+    {
+      "id": 16,
+      "set": "validation",
+      "query": "I need to merge two Excel files by a shared ID column",
+      "should_trigger": true,
+      "note": "Validation: join operation on tabular data"
+    },
+    {
+      "id": 17,
+      "set": "validation",
+      "query": "set up a cron job to email me a CSV report every Monday",
+      "should_trigger": false,
+      "note": "Validation: STRONG NEGATIVE — CSV in output, not input; intent is scheduling"
+    },
+    {
+      "id": 18,
+      "set": "validation",
+      "query": "normalize this feature column before I train my model",
+      "should_trigger": true,
+      "note": "Validation: ML preprocessing — tabular transform intent"
+    },
+    {
+      "id": 19,
+      "set": "validation",
+      "query": "refactor my CSV parser class to use async/await",
+      "should_trigger": false,
+      "note": "Validation: STRONG NEGATIVE — CSV in code context, intent is refactoring"
+    }
+  ]
+}

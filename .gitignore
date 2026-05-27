@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Claude Code generated memory (user-specific, not project config)
+.claude/agent-memory/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
