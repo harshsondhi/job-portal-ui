@@ -1,0 +1,11 @@
+changes:
+  - table: users
+    action: add_column
+    column:
+      name: deleted_at
+      type: timestamptz
+      nullable: true
+
+  - table: orders
+    action: add_index
+    columns: [customer_id, created_at]
